@@ -10,7 +10,6 @@ import { BlogIndexTemplate } from '../templates/BlogIndex'
 import { SinglePostTemplate } from '../templates/SinglePost'
 
 import uploadcare from 'netlify-cms-media-library-uploadcare'
-CMS.registerMediaLibrary(uploadcare)
 
 if (
   window.location.hostname === 'localhost' &&
@@ -22,6 +21,8 @@ if (
 } else {
   CMS.registerPreviewStyle('/styles.css')
 }
+
+CMS.registerMediaLibrary(uploadcare)
 
 CMS.registerPreviewTemplate('home-page', ({ entry }) => (
   <HomePageTemplate {...entry.toJS().data} />
